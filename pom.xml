@@ -7,6 +7,14 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>amegybank-qa-ui-testng</name>
 	<description>amegybank-qa-ui-testng with tdd approach</description>
+	
+	<properties>
+		<aspectj.version>1.8.10</aspectj.version>
+		<maven.compiler.version>3.3</maven.compiler.version>
+		<test.runner>testng.xml</test.runner>
+		<aspectj.version>1.8.10</aspectj.version>
+	</properties>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
@@ -21,4 +29,36 @@
 			<scope>test</scope>
 		</dependency>		
 	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.22.0</version>
+				<configuration>
+					<testFailureIgnore>true</testFailureIgnore>
+					<suiteXmlFiles>
+							<suiteXmlFile>testng.xml</suiteXmlFile>
+						</suiteXmlFiles>
+
+					<systemPropertyVariables>
+<!-- 						<browserName>${browserName}</browserName> -->
+<!-- 						<platformName>${platformName}</platformName> -->
+					</systemPropertyVariables>
+				</configuration>
+				
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.2</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
 </project>
